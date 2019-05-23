@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<robot name="Transporter_model_1.0">
+
+<!--define the colour parameters here -->
+<material name="black">
+       <color rgba="0 0 0 1"/>
+   </material>
+
+   <material name="white">
+       <color rgba="1 1 1 1.2"/>
+   </material>
+
+   <material name="red">
+       <color rgba="1 0 0 1"/>
+   </material>
+
+   <material name="green">
+       <color rgba="0 1 0 2"/>
+   </material>
+
+   <material name="blue">
+       <color rgba="0 0.5 0.7 2"/>
+   </material>
+
+   <material name="grey">
+       <color rgba=".2 .2 .2 1"/>
+   </material>
+
+<!--define the various links here -->
+<link name="base_link">
+<visual>
+<geometry>
+  <!--dimensions for size (x,y,z) in ros coordinate conventions-->
+  <box size="0.5 0.5 0.339"/>
+</geometry>
+<origin rpy="0 0 0" xyz="0 0 0.1695"/>
+<material name="white"/>
+</visual>
+</link>
+
+<link name="base_laser">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://robot_model_test/meshes/sick_tim551.stl"/>
+      </geometry>
+    <material name="blue"/>
+    </visual>
+  </link>
+
+  <link name="camera_link">
+      <visual>
+        <origin rpy="1.57 0 1.57" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="package://robot_model_test/meshes/d435.dae"/>
+        </geometry>
+      <material name="blue"/>
+      </visual>
+    </link>
+
+    <link name="us_left_link">
+        <visual>
+        <!--  <origin rpy="-1.57 0 -1.57" xyz="0 0 0"/> -->
+          <origin rpy="-1.57 0 -1.57" xyz="0 0.02268 0"/>
+          <geometry>
+            <mesh filename="package://robot_model_test/meshes/HC-SR04-binary.stl" scale="0.001 0.001 0.001"/>
+          </geometry>
+        <material name="blue"/>
+        </visual>
+      </link>
+
+      <link name="us_front_link">
+          <visual>
+          <!--  <origin rpy="-1.57 0 -1.57" xyz="0 0 0"/> -->
+            <origin rpy="-1.57 0 -1.57" xyz="0 0.02268 0"/>
+            <geometry>
+              <mesh filename="package://robot_model_test/meshes/HC-SR04-binary.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+          <material name="blue"/>
+          </visual>
+        </link>
+
+        <link name="us_right_link">
+            <visual>
+            <!--  <origin rpy="-1.57 0 -1.57" xyz="0 0 0"/> -->
+              <origin rpy="-1.57 0 -1.57" xyz="0 0.02268 0"/>
+              <geometry>
+                <mesh filename="package://robot_model_test/meshes/HC-SR04-binary.stl" scale="0.001 0.001 0.001"/>
+              </geometry>
+            <material name="blue"/>
+            </visual>
+          </link>
+
+
+
+
+<!--define the various joints here -->
+<joint name="lidar_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_laser"/>
+    <!--The origin defines the transform  -->
+    <origin xyz="0 0 0.40146"/>
+  </joint>
+
+  <joint name="camera_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="camera_link"/>
+      <!--The origin defines the transform  -->
+      <origin xyz="0.27 0 0.3"/>
+    </joint>
+
+    <joint name="us_left_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="us_left_link"/>
+        <!--The origin defines the transform  -->
+        <origin rpy="0 0 0.78539" xyz="0.219 0.219 0.381"/>
+      </joint>
+
+
+        <joint name="us_front_joint" type="fixed">
+              <parent link="base_link"/>
+              <child link="us_front_link"/>
+              <!--The origin defines the transform  -->
+              <origin rpy="0 0 0" xyz="0.255 0 0.381"/>
+            </joint>
+
+            <joint name="us_right_joint" type="fixed">
+                <parent link="base_link"/>
+                <child link="us_right_link"/>
+                <!--The origin defines the transform  -->
+                <origin rpy="0 0 -0.78539" xyz="0.219 -0.219 0.381"/>
+              </joint>
+
+
+</robot>

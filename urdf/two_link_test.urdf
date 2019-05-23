@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<robot name="two_link">
+<!-- -->
+
+<!--We could use urdf to define the transforms between coordinate frames for the robot-->
+
+
+<!--Define the colour properties-->
+<material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+
+<!--Define the link properties-->
+<link name="base_link">
+<visual>
+<geometry>
+<cylinder length="1.0" radius="0.2"/>
+</geometry>
+<origin rpy="0 0 0" xyz="0 0 0.5"/>
+<material name="blue"/>
+</visual>
+</link>
+
+<link name="head">
+<visual>
+<geometry>
+<!--dimensions for size (x,y,z) in ros coordinate conventions-->
+<box size="0.3 0.3 0.3"/>
+</geometry>
+<origin rpy="0 0 0" xyz="0 0 0.15"/>
+<material name="white"/>
+</visual>
+</link>
+
+<joint name="head joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="head"/>
+    <!--<limit effort="1000.0" lower="0" upper="0" velocity="0.5"/>-->
+    <!--The origin defines the transform  -->
+    <origin rpy="0 0 -1.57" xyz="0 0 1"/>
+    <axis xyz="0 0 1" />
+  </joint>
+
+
+
+
+</robot>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot name="ludar">
+
+<!--define the colour parameters here -->
+<material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+
+<link name="base_link">
+    <visual>
+    <!--  <origin rpy="-1.57 0 -1.57" xyz="0 0 0"/> -->
+      <origin rpy="-1.57 0 -1.57" xyz="0 0.02268 0"/>
+      <geometry>
+        <mesh filename="package://robot_model_test/meshes/HC-SR04-binary.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    <material name="blue"/>
+    </visual>
+  </link>
+
+
+
+</robot>
