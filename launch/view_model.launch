@@ -5,11 +5,11 @@
   <arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz" />
 
 <!--  <param name="robot_description" textfile="$(find robot_model_test)/urdf/first_urdf_test.urdf" /> -->
- <param name="robot_description" textfile="$(find robot_model_test)/urdf/two_link_test.urdf" />
+ <!--<param name="robot_description" textfile="$(find robot_model_test)/urdf/two_link_test.urdf" />-->
 
 <!--<param name="robot_description" textfile="$(find robot_model_test)/urdf/first_mesh_test.urdf" />-->
 
-<!--<param name="robot_description" textfile="$(find robot_model_test)/urdf/first_hardware_representation.urdf" />-->
+<param name="robot_description" textfile="$(find robot_model_test)/urdf/first_hardware_representation.urdf" />
   <param name="use_gui" value="$(arg gui)"/>
 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
