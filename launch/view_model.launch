@@ -2,19 +2,12 @@
 <launch>
 
   <arg name="gui" default="true" />
-  <arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz" />
 
-<!--  <param name="robot_description" textfile="$(find robot_model_test)/urdf/first_urdf_test.urdf" /> -->
- <!--<param name="robot_description" textfile="$(find robot_model_test)/urdf/two_link_test.urdf" />-->
-
-<!--<param name="robot_description" textfile="$(find robot_model_test)/urdf/first_mesh_test.urdf" />-->
-
-<param name="robot_description" textfile="$(find robot_model_test)/urdf/first_hardware_representation.urdf" />
+  <param name="robot_description" textfile="$(find robot_model_test)/urdf/first_hardware_representation.urdf" />
   <param name="use_gui" value="$(arg gui)"/>
 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
-<!--  <node name="simple_tf_pub" pkg="tf" type="static_transform_publisher" args="1.0 0 2.0 0 0 0 base_link base_laser 100"  />-->
+
 
 </launch>
